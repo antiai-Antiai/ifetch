@@ -1,9 +1,9 @@
-import axios from '../../src/index'
+import ifetch from '../../src/index'
 
-axios({
+ifetch({
   method:'get',
   url:'/simple/get',
-  param: {
+  params: {
     a: 1,
     b: 2
   }
