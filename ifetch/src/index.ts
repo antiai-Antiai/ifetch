@@ -1,6 +1,7 @@
 import { ifetchRequestConfig } from './types'
 import xhr from './xhr'
 import buildURL from './helper/url'
+import transformRequest from './helper/data'
 
 function ifetch(config:ifetchRequestConfig){
   processConfig(config)
@@ -9,6 +10,7 @@ function ifetch(config:ifetchRequestConfig){
 
 function processConfig(config: ifetchRequestConfig):void{
   config.url = transformUrl(config)
+  config.data = transformRequestData(config)
 }
 
 /**
@@ -21,4 +23,12 @@ function transformUrl(config: ifetchRequestConfig): string{
   return buildURL(url, params)
 }
 
+/**
+ *
+ * @param config
+ * 处理data数据
+ */
+function transformRequestData(config: ifetchRequestConfig): any{
+  return transformRequest(config.data)
+}
 export default ifetch;

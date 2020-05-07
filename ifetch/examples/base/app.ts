@@ -37,14 +37,14 @@ import ifetch from '../../src/index'
 //   }
 // })
 
-ifetch({
-  method: 'get',
-  url: '/base/get',
-  params: {
-    foo: 'bar',
-    baz: null
-  }
-})
+// ifetch({
+//   method: 'get',
+//   url: '/base/get',
+//   params: {
+//     foo: 'bar',
+//     baz: null
+//   }
+// })
 
 // ifetch({
 //   method: 'get',
@@ -61,3 +61,21 @@ ifetch({
 //     bar: 'baz'
 //   }
 // })
+
+
+ifetch({
+  method: 'post',
+  url: '/base/post',
+  data: {
+    a:1,
+    b:2
+  }
+})
+
+const arr = new Int32Array([21, 31])
+
+ifetch({
+  method: 'post',
+  url: '/base/buffer',
+  data: arr
+})
