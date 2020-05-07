@@ -1,5 +1,7 @@
 import ifetch from '../../src/index'
-
+/**
+ * 测试get请求
+ */
 // ifetch({
 //   method: 'get',
 //   url: '/base/get',
@@ -62,20 +64,53 @@ import ifetch from '../../src/index'
 //   }
 // })
 
+/**
+ * 测试post请求
+ */
+// ifetch({
+//   method: 'post',
+//   url: '/base/post',
+//   data: {
+//     a:1,
+//     b:2
+//   }
+// })
+
+// const arr = new Int32Array([21, 31])
+
+// ifetch({
+//   method: 'post',
+//   url: '/base/buffer',
+//   data: arr
+// })
+
+// 测试headers
+// ifetch({
+//   method: 'post',
+//   url: '/base/post',
+//   data: {
+//     a: 1,
+//     b: 2
+//   }
+// })
 
 ifetch({
   method: 'post',
   url: '/base/post',
+  headers: {
+    'content-type': 'application/json;charset=utf-8'
+  },
   data: {
-    a:1,
-    b:2
+    a: 1,
+    b: 2
   }
 })
 
-const arr = new Int32Array([21, 31])
+const paramsString = 'q=URLUtils.searchParams&topic=api'
+const searchParams = new URLSearchParams(paramsString)
 
 ifetch({
   method: 'post',
-  url: '/base/buffer',
-  data: arr
+  url: '/base/post',
+  data: searchParams
 })

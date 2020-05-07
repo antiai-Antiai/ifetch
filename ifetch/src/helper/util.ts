@@ -19,6 +19,6 @@ export function encode(val:string):string{
   .replace(/%5D/gi, ']')
 }
 
-export function isPlainObject(val: any):val is Object{
-  return toString.call(val) === '[object object]'
+export function isPlainObject (val: any): val is Object {
+  return toString.call(val) === '[object Object]'
 }

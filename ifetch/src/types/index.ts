@@ -11,4 +11,5 @@ export interface ifetchRequestConfig{
   method?: Method
   data?: any
   params?: any
+  headers?: any
 }
