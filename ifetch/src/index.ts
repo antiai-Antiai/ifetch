@@ -1,12 +1,12 @@
-import { ifetchRequestConfig } from './types'
+import { ifetchRequestConfig, ifetchPromise } from './types'
 import xhr from './xhr'
 import { buildURL } from './helper/url'
 import transformRequest from './helper/data'
 import { processHeaders } from './helper/headers'
 
-function ifetch(config:ifetchRequestConfig){
+function ifetch(config:ifetchRequestConfig):ifetchPromise{
   processConfig(config)
-  xhr(config)
+  return xhr(config)
 }
 
 function processConfig(config: ifetchRequestConfig):void{
