@@ -1,12 +1,14 @@
-import { ifetchRequestConfig, ifetchPromise } from './types'
+import { ifetchRequestConfig, ifetchPromise, ifetchResponse } from './types'
 import xhr from './xhr'
 import { buildURL } from './helper/url'
-import transformRequest from './helper/data'
+import { transformRequest, transformResponse } from './helper/data'
 import { processHeaders } from './helper/headers'
 
 function ifetch(config:ifetchRequestConfig):ifetchPromise{
   processConfig(config)
-  return xhr(config)
+  return xhr(config).then((res) => {
+    return transformResponseData(res)
+  })
 }
 
 function processConfig(config: ifetchRequestConfig):void{
@@ -28,7 +30,7 @@ function transformUrl(config: ifetchRequestConfig): string{
 /**
  *
  * @param config
- * 处理data数据
+ * 处理请求data数据
  */
 function transformRequestData(config: ifetchRequestConfig): any{
   return transformRequest(config.data)
@@ -42,5 +44,10 @@ function transformRequestData(config: ifetchRequestConfig): any{
 function transformHeaders(config: ifetchRequestConfig): any{
   const {headers = {}, data} = config
   return processHeaders(headers, data)
+}
+
+function transformResponseData(res: ifetchResponse):ifetchResponse{
+  res.data = transformResponse(res.data)
+  return res
 }
 export default ifetch;

@@ -116,25 +116,25 @@ import ifetch from '../../src/index'
 // })
 
 
-// ifetch({
-//   method: 'post',
-//   url: '/base/post',
-//   data:{
-//     a:1,
-//     b:2
-//   }
-// }).then((res) => {
-//   console.log(res)
-// })
-
 ifetch({
   method: 'post',
   url: '/base/post',
-  responseType: 'json',
-  data: {
-    a: 3,
-    b: 4
+  data:{
+    a:1,
+    b:2
   }
 }).then((res) => {
   console.log(res)
 })
+
+// ifetch({
+//   method: 'post',
+//   url: '/base/post',
+//   responseType: 'json',
+//   data: {
+//     a: 3,
+//     b: 4
+//   }
+// }).then((res) => {
+//   console.log(res)
+// })
