@@ -13,6 +13,7 @@ export interface ifetchRequestConfig{
   params?: any
   headers?: any
   responseType?: any
+  timeout?: number
 }
 
 export interface ifetchResponse{
