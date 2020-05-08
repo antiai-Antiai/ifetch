@@ -116,16 +116,16 @@ import ifetch from '../../src/index'
 // })
 
 
-ifetch({
-  method: 'post',
-  url: '/base/post',
-  data:{
-    a:1,
-    b:2
-  }
-}).then((res) => {
-  console.log(res)
-})
+// ifetch({
+//   method: 'post',
+//   url: '/base/post',
+//   data:{
+//     a:1,
+//     b:2
+//   }
+// }).then((res) => {
+//   console.log(res)
+// })
 
 ifetch({
   method: 'post',

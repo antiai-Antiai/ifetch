@@ -1,4 +1,5 @@
 import { ifetchRequestConfig, ifetchResponse, ifetchPromise } from './types'
+import { parseHeaders } from './helper/headers'
 
 export default function xhr(config: ifetchRequestConfig): ifetchPromise{
   return new Promise((resolve) =>{
@@ -18,7 +19,7 @@ export default function xhr(config: ifetchRequestConfig): ifetchPromise{
       if(request.readyState !== 4){
         return
       }
-      const responseHeaders = request.getAllResponseHeaders()
+      const responseHeaders = parseHeaders(request.getAllResponseHeaders())
       const responseData = responseType && responseType !=='text' ? request.response : request.responseText
       const response: ifetchResponse = {
         data: responseData,
